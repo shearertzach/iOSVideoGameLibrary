@@ -22,6 +22,7 @@ class GameInfoManagerViewController: UIViewController {
     @IBOutlet weak var checkInButton: UIButton!
     
 
+
     
     
     override func viewDidLoad() {
@@ -69,6 +70,7 @@ class GameInfoManagerViewController: UIViewController {
 
         GameManager.sharedInstance.checkOutGame(at: currentGameIndex)
         load()
+        
     }
     
     

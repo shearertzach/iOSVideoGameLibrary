@@ -13,7 +13,6 @@ class GameLibraryViewController: UIViewController, UITableViewDataSource, UITabl
     
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var submitButton: UIBarButtonItem!
     
 
     
@@ -24,12 +23,16 @@ class GameLibraryViewController: UIViewController, UITableViewDataSource, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.reloadData()
+        
     }
+   
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tableView.reloadData()
-        submitButton.isEnabled = false
         print("View Reloaded")
         
     }
@@ -70,7 +73,6 @@ class GameLibraryViewController: UIViewController, UITableViewDataSource, UITabl
         _ = tableView.cellForRow(at: indexPath) as! GameTableCell
         currentIndexPath = indexPath.row
         isSelected = true
-        submitButton.isEnabled = true
         currentGame = GameManager.sharedInstance.getGame(at: indexPath.row)
         print(currentIndexPath!)
         print(currentGame.name)
@@ -78,7 +80,6 @@ class GameLibraryViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, willDeselectRowAt indexPath: IndexPath) -> IndexPath? {
         isSelected = false
-        submitButton.isEnabled = false
         return indexPath
     }
     
@@ -87,10 +88,51 @@ class GameLibraryViewController: UIViewController, UITableViewDataSource, UITabl
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (_, _) in
             GameManager.sharedInstance.removeGame(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            self.submitButton.isEnabled = false
         }
         
-        return [deleteAction]
+        let gameForIndex = GameManager.sharedInstance.getGame(at: indexPath.row)
+        let title = gameForIndex.checkedOut ? "Check In" : "Check Out"
+        
+        let titleAction = UITableViewRowAction(style: .normal, title: title) { (_, _) in
+            self.currentGame = GameManager.sharedInstance.getGame(at: indexPath.row)
+            
+            if title == "Check Out" {
+                GameManager.sharedInstance.checkOutGame(at: indexPath.row)
+                
+                let currentCalendar = Calendar.current
+                let twoWeek = currentCalendar.date(byAdding: .day, value: 14, to: Date())
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
+                let alert = UIAlertController(title: "", message: "You checked \(self.currentGame.name) out. The game is due \(dateFormatter.string(from: twoWeek!))", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Okay!", style: .cancel, handler: { action in
+                }))
+                self.present(alert, animated: true, completion: nil)
+
+            } else if title == "Check In" {
+                GameManager.sharedInstance.checkGameIn(at: indexPath.row)
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
+                let alert = UIAlertController(title: "", message: "You checked \(self.currentGame.name) in on \(dateFormatter.string(from: Date()))", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Okay!", style: .cancel, handler: { action in
+                }))
+                self.present(alert, animated: true, completion: nil)
+            }
+            
+            tableView.reloadRows(at: [indexPath], with: .fade)
+        }
+        let showEditScreenAction = UITableViewRowAction(style: .normal, title: "Edit") { (_, _) in
+            self.currentGame = GameManager.sharedInstance.getGame(at: indexPath.row)
+            self.performSegue(withIdentifier: "editScreen", sender: self)
+        }
+        showEditScreenAction.backgroundColor = gradientColors.lightGrey
+        
+        if title == "Check Out" {
+        titleAction.backgroundColor = gradientColors.green
+        } else if title == "Check In" {
+        titleAction.backgroundColor = gradientColors.blue
+        }
+        
+        return [deleteAction, titleAction, showEditScreenAction]
     }
     
     
@@ -107,6 +149,9 @@ class GameLibraryViewController: UIViewController, UITableViewDataSource, UITabl
             print(currentGame.name)
         }
     }
+    
+    
+    
     
 
 }

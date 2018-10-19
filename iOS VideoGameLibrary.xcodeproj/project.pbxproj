@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		69CA3EA921790212005C038E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CA3EA821790212005C038E /* Constants.swift */; };
+		69CA3EAB2179046C005C038E /* GradientColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CA3EAA2179046C005C038E /* GradientColorExtension.swift */; };
 		69FDCB0D2177AF8F00C4BF29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FDCB0C2177AF8F00C4BF29 /* AppDelegate.swift */; };
 		69FDCB122177AF8F00C4BF29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69FDCB102177AF8F00C4BF29 /* Main.storyboard */; };
 		69FDCB142177AF9000C4BF29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69FDCB132177AF9000C4BF29 /* Assets.xcassets */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		69CA3EA821790212005C038E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		69CA3EAA2179046C005C038E /* GradientColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientColorExtension.swift; sourceTree = "<group>"; };
 		69FDCB092177AF8F00C4BF29 /* iOS VideoGameLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS VideoGameLibrary.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69FDCB0C2177AF8F00C4BF29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69FDCB112177AF8F00C4BF29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -94,6 +98,8 @@
 				69FDCB262177B01100C4BF29 /* GameManager.swift */,
 				69FDCB282177B06700C4BF29 /* Game.swift */,
 				69FDCB322177C55A00C4BF29 /* GameTableCell.swift */,
+				69CA3EA821790212005C038E /* Constants.swift */,
+				69CA3EAA2179046C005C038E /* GradientColorExtension.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -190,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69FDCB332177C55A00C4BF29 /* GameTableCell.swift in Sources */,
+				69CA3EAB2179046C005C038E /* GradientColorExtension.swift in Sources */,
 				69FDCB252177B00300C4BF29 /* AddGameViewController.swift in Sources */,
 				69FDCB272177B01100C4BF29 /* GameManager.swift in Sources */,
 				69FDCB292177B06700C4BF29 /* Game.swift in Sources */,
@@ -197,6 +204,7 @@
 				69FDCB0D2177AF8F00C4BF29 /* AppDelegate.swift in Sources */,
 				69FDCB232177AFF500C4BF29 /* GameInfoManagerViewController.swift in Sources */,
 				69FDCB1F2177AFCA00C4BF29 /* GameLibraryViewController.swift in Sources */,
+				69CA3EA921790212005C038E /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
