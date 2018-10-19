@@ -118,7 +118,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7E6-Di-jzu" id="pBE-L7-49X">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3kO-XX-kUq">
@@ -303,20 +303,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JEe-Uy-hol">
-                                <rect key="frame" x="66" y="641" width="73" height="117"/>
-                                <state key="normal" title="Check Out"/>
-                                <connections>
-                                    <action selector="checkOutPressed:" destination="RuZ-vv-qLt" eventType="touchUpInside" id="sio-ku-MDt"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXW-c8-qUa">
-                                <rect key="frame" x="239" y="641" width="60" height="117"/>
-                                <state key="normal" title="Check In"/>
-                                <connections>
-                                    <action selector="checkInPressed:" destination="RuZ-vv-qLt" eventType="touchUpInside" id="SOH-MK-dx8"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPY-rh-ydr">
                                 <rect key="frame" x="163" y="313" width="48" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -328,45 +314,36 @@
                         <constraints>
                             <constraint firstItem="Tu6-T3-AmI" firstAttribute="top" secondItem="HOv-rx-sIy" secondAttribute="bottom" constant="38" id="3OM-Cf-eIr"/>
                             <constraint firstItem="fCB-Hi-wOk" firstAttribute="top" secondItem="Rw8-ZQ-BEp" secondAttribute="bottom" constant="41" id="3To-Uz-zmd"/>
-                            <constraint firstItem="JEe-Uy-hol" firstAttribute="leading" secondItem="th0-Vg-fl1" secondAttribute="leading" constant="66" id="4dI-z3-sz3"/>
                             <constraint firstItem="DPY-rh-ydr" firstAttribute="leading" secondItem="th0-Vg-fl1" secondAttribute="leading" constant="163" id="76K-Xe-GmA"/>
                             <constraint firstItem="Rw8-ZQ-BEp" firstAttribute="top" secondItem="Tu6-T3-AmI" secondAttribute="bottom" constant="14" id="883-Pj-xj6"/>
                             <constraint firstItem="th0-Vg-fl1" firstAttribute="trailing" secondItem="LsN-0z-xYV" secondAttribute="trailing" constant="33" id="94X-Cj-Kc1"/>
                             <constraint firstItem="th0-Vg-fl1" firstAttribute="trailing" secondItem="Tu6-T3-AmI" secondAttribute="trailing" constant="78" id="BJI-Ax-As4"/>
                             <constraint firstItem="DPY-rh-ydr" firstAttribute="top" secondItem="rfX-ig-zBt" secondAttribute="bottom" constant="30" id="CZw-ta-qBY"/>
                             <constraint firstItem="th0-Vg-fl1" firstAttribute="trailing" secondItem="fCB-Hi-wOk" secondAttribute="trailing" constant="46" id="Csq-ZT-nZI"/>
-                            <constraint firstItem="WXW-c8-qUa" firstAttribute="leading" secondItem="JEe-Uy-hol" secondAttribute="trailing" constant="100" id="DbK-Fg-00h"/>
                             <constraint firstItem="HOv-rx-sIy" firstAttribute="leading" secondItem="th0-Vg-fl1" secondAttribute="leading" constant="52" id="Hxr-lq-Zkf"/>
                             <constraint firstItem="RrN-xb-WAK" firstAttribute="leading" secondItem="th0-Vg-fl1" secondAttribute="leading" constant="31" id="JNR-cq-C7W"/>
                             <constraint firstItem="rfX-ig-zBt" firstAttribute="top" secondItem="th0-Vg-fl1" secondAttribute="top" constant="15" id="Ljg-VJ-EiU"/>
                             <constraint firstItem="rfX-ig-zBt" firstAttribute="leading" secondItem="th0-Vg-fl1" secondAttribute="leading" constant="122" id="MW3-QF-DXG"/>
                             <constraint firstItem="LsN-0z-xYV" firstAttribute="top" secondItem="fCB-Hi-wOk" secondAttribute="bottom" constant="14" id="NK4-6j-7mi"/>
                             <constraint firstItem="2Ww-Fh-eIk" firstAttribute="leading" secondItem="th0-Vg-fl1" secondAttribute="leading" constant="31" id="OHD-vk-Ki5"/>
-                            <constraint firstItem="WXW-c8-qUa" firstAttribute="top" secondItem="LsN-0z-xYV" secondAttribute="bottom" constant="41" id="PgJ-DQ-XB7"/>
                             <constraint firstItem="2Ww-Fh-eIk" firstAttribute="top" secondItem="Bav-Bm-CFZ" secondAttribute="bottom" constant="14" id="Pn9-zA-Ke2"/>
                             <constraint firstItem="ifG-oR-oBU" firstAttribute="leading" secondItem="th0-Vg-fl1" secondAttribute="leading" constant="51" id="Wqi-mV-YyN"/>
                             <constraint firstItem="th0-Vg-fl1" firstAttribute="trailing" secondItem="Rw8-ZQ-BEp" secondAttribute="trailing" constant="33" id="X7w-8c-uYA"/>
                             <constraint firstItem="th0-Vg-fl1" firstAttribute="trailing" secondItem="DPY-rh-ydr" secondAttribute="trailing" constant="164" id="Zt1-oO-6XZ"/>
                             <constraint firstItem="ifG-oR-oBU" firstAttribute="top" secondItem="2Ww-Fh-eIk" secondAttribute="bottom" constant="40.5" id="f2f-Po-D1H"/>
                             <constraint firstItem="LsN-0z-xYV" firstAttribute="leading" secondItem="RrN-xb-WAK" secondAttribute="trailing" constant="27" id="g0q-xg-1qe"/>
-                            <constraint firstItem="th0-Vg-fl1" firstAttribute="bottom" secondItem="WXW-c8-qUa" secondAttribute="bottom" constant="20" id="guv-r4-2XC"/>
                             <constraint firstItem="Bav-Bm-CFZ" firstAttribute="leading" secondItem="th0-Vg-fl1" secondAttribute="leading" constant="78" id="h0b-IV-f6U"/>
                             <constraint firstItem="th0-Vg-fl1" firstAttribute="trailing" secondItem="rfX-ig-zBt" secondAttribute="trailing" constant="121" id="i1F-oC-HUg"/>
-                            <constraint firstItem="th0-Vg-fl1" firstAttribute="trailing" secondItem="WXW-c8-qUa" secondAttribute="trailing" constant="76" id="khQ-2m-ehw"/>
-                            <constraint firstItem="JEe-Uy-hol" firstAttribute="top" secondItem="RrN-xb-WAK" secondAttribute="bottom" constant="41" id="lKg-c5-krZ"/>
                             <constraint firstItem="th0-Vg-fl1" firstAttribute="trailing" secondItem="HOv-rx-sIy" secondAttribute="trailing" constant="52" id="m4T-jz-XF4"/>
                             <constraint firstItem="Bav-Bm-CFZ" firstAttribute="top" secondItem="HOv-rx-sIy" secondAttribute="bottom" constant="38" id="mcW-Ty-fKY"/>
                             <constraint firstItem="RrN-xb-WAK" firstAttribute="top" secondItem="ifG-oR-oBU" secondAttribute="bottom" constant="14.5" id="rmp-yf-M7u"/>
                             <constraint firstItem="HOv-rx-sIy" firstAttribute="top" secondItem="DPY-rh-ydr" secondAttribute="bottom" constant="13" id="rqf-gg-P44"/>
-                            <constraint firstItem="th0-Vg-fl1" firstAttribute="bottom" secondItem="JEe-Uy-hol" secondAttribute="bottom" constant="20" id="xLo-Tl-oda"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="th0-Vg-fl1"/>
                     </view>
                     <connections>
                         <outlet property="RatingLabel" destination="Rw8-ZQ-BEp" id="3FO-Q2-nMy"/>
-                        <outlet property="checkInButton" destination="WXW-c8-qUa" id="EqS-i0-sGP"/>
                         <outlet property="checkInDateLabel" destination="LsN-0z-xYV" id="FAh-AL-KiW"/>
-                        <outlet property="checkOutButton" destination="JEe-Uy-hol" id="qHX-EF-z80"/>
                         <outlet property="checkedOutLabel" destination="RrN-xb-WAK" id="jKq-qs-qRY"/>
                         <outlet property="genreLabel" destination="2Ww-Fh-eIk" id="PXg-DA-Smc"/>
                         <outlet property="nameLabel" destination="HOv-rx-sIy" id="J8W-EY-EYU"/>

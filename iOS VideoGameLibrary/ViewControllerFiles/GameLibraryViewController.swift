@@ -120,7 +120,7 @@ class GameLibraryViewController: UIViewController, UITableViewDataSource, UITabl
             
             tableView.reloadRows(at: [indexPath], with: .fade)
         }
-        let showEditScreenAction = UITableViewRowAction(style: .normal, title: "Edit") { (_, _) in
+        let showEditScreenAction = UITableViewRowAction(style: .normal, title: "Status") { (_, _) in
             self.currentGame = GameManager.sharedInstance.getGame(at: indexPath.row)
             self.performSegue(withIdentifier: "editScreen", sender: self)
         }

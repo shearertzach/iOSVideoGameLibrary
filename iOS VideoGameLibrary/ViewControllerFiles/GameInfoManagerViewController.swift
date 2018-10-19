@@ -18,8 +18,6 @@ class GameInfoManagerViewController: UIViewController {
     @IBOutlet weak var RatingLabel: UILabel!
     @IBOutlet weak var checkedOutLabel: UILabel!
     @IBOutlet weak var checkInDateLabel: UILabel!
-    @IBOutlet weak var checkOutButton: UIButton!
-    @IBOutlet weak var checkInButton: UIButton!
     
 
 
@@ -45,46 +43,18 @@ class GameInfoManagerViewController: UIViewController {
         if currentGame.checkedOut == true {
             checkedOutLabel.text = currentGame.checkedOutDate
             checkInDateLabel.text = currentGame.dueDate
-            checkOutButton.isEnabled = false
-            checkInButton.isEnabled = true
+
         } else {
             checkedOutLabel.text = "This game has not been checked out"
             checkInDateLabel.text = "This game has not been checked out"
-            checkInButton.isEnabled = false
-            checkOutButton.isEnabled = true
+
         }
         
     }
     
     
    
-    @IBAction func checkOutPressed(_ sender: Any) {
-        let currentCalendar = Calendar.current
-        let twoWeek = currentCalendar.date(byAdding: .day, value: 14, to: Date())
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
-        let alert = UIAlertController(title: "", message: "You checked \(currentGame.name) out. The game is due \(dateFormatter.string(from: twoWeek!))", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Okay!", style: .cancel, handler: { action in
-        }))
-        self.present(alert, animated: true, completion: nil)
 
-        GameManager.sharedInstance.checkOutGame(at: currentGameIndex)
-        load()
-        
-    }
-    
-    
-    @IBAction func checkInPressed(_ sender: Any) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
-        let alert = UIAlertController(title: "", message: "You checked \(currentGame.name) in on \(dateFormatter.string(from: Date()))", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Okay!", style: .cancel, handler: { action in
-        }))
-        self.present(alert, animated: true, completion: nil)
-        
-        GameManager.sharedInstance.checkGameIn(at: currentGameIndex)
-        load()
-    }
     
     
     

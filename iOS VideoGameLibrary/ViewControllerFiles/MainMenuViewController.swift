@@ -24,7 +24,7 @@ class MainMenuViewController: UIViewController, CAAnimationDelegate {
     var isActive = true
     
     let gradientOne = UIColor.red.cgColor
-    let gradientTwo = gradientColors.darkGrey.cgColor
+    let gradientTwo = gradientColors.darkRed.cgColor
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +54,10 @@ class MainMenuViewController: UIViewController, CAAnimationDelegate {
         animateGradient()
         
     }
+
+    
+    
+    
     
     func animateGradient() {
         
