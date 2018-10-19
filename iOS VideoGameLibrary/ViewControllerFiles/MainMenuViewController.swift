@@ -23,8 +23,9 @@ class MainMenuViewController: UIViewController, CAAnimationDelegate {
     var currentGradient: Int = 0
     var isActive = true
     
-    let gradientOne = UIColor.red.cgColor
-    let gradientTwo = gradientColors.darkRed.cgColor
+    let gradientOne = gradientColors.darkRed.cgColor
+    let gradientTwo = gradientColors.red.cgColor
+    let gradientThree = gradientColors.brightRed.cgColor
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,13 +41,14 @@ class MainMenuViewController: UIViewController, CAAnimationDelegate {
         super.viewDidAppear(animated)
         
         gradientSet.append([gradientOne, gradientTwo])
-        gradientSet.append([gradientTwo, gradientOne])
+        gradientSet.append([gradientTwo, gradientThree])
+        gradientSet.append([gradientThree, gradientOne])
         
         
         gradient.frame = colorView.bounds
         gradient.colors = gradientSet[currentGradient]
-        gradient.startPoint = CGPoint(x:0.5, y:1)
-        gradient.endPoint = CGPoint(x:0.5, y:0)
+        gradient.startPoint = CGPoint(x:1, y:1)
+        gradient.endPoint = CGPoint(x:0.0, y:0)
         gradient.drawsAsynchronously = true
         colorView.layer.insertSublayer(gradient, below: thirdButton.layer)
         
@@ -68,7 +70,7 @@ class MainMenuViewController: UIViewController, CAAnimationDelegate {
         }
         
         let gradientChangeAnimation = CABasicAnimation(keyPath: "colors")
-        gradientChangeAnimation.duration = 5.0
+        gradientChangeAnimation.duration = 2.5
         gradientChangeAnimation.toValue = gradientSet[currentGradient]
         gradientChangeAnimation.fillMode = CAMediaTimingFillMode.forwards
         gradientChangeAnimation.isRemovedOnCompletion = false
@@ -100,7 +102,7 @@ class MainMenuViewController: UIViewController, CAAnimationDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: false)
+        
     }
     
     
@@ -125,7 +127,7 @@ class MainMenuViewController: UIViewController, CAAnimationDelegate {
     
     
     func startUp() {
-        UIView.animate(withDuration: 2,  animations: {
+        UIView.animate(withDuration: 1.2,  animations: {
             self.startLabel.alpha = 1.0
             self.firstButton.alpha = 1.0
             self.secondButton.alpha = 1.0
