@@ -53,26 +53,30 @@ class AddGameViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             return
         }
         
-        var rating: Rating!
+        var rating: String!
         
         switch gameRatingSegmentedControl.selectedSegmentIndex {
         case 0:
-            rating = .E
+            rating = "Everyone"
         case 1:
-            rating = .E10
+            rating = "Everyone 10+"
         case 2:
-            rating = .T
+            rating = "Teen"
         case 3:
-            rating = .M
+            rating = "Mature"
         case 4:
-            rating = .AO
+            rating = "Adults Only"
         default:
-            rating = .E
+            rating = "Everyone"
         }
         
         let genre = genres[gameGenrePickerView.selectedRow(inComponent: 0)]
         
-        let newGame = VideoGame(name: title, rating: rating, genre: genre)
+        let newGame = VideoGame()
+        
+        newGame.name = title
+        newGame.genre = genre
+        newGame.rating = rating
         
         GameManager.sharedInstance.addGame(game: newGame)
         

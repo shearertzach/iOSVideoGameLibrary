@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 class GameManager {
     
@@ -14,10 +15,12 @@ class GameManager {
     
     
     private init() {
-        
+        videoGameArray = realm.objects(VideoGame.self)
     }
     
-    private var videoGameArray: [VideoGame] = [VideoGame(name: "Rainbow Six Siege", rating: .M, genre: "Shooter"), VideoGame(name: "Black Ops 4", rating: .M, genre: "Shooter"), VideoGame(name: "Fortnite", rating: .E, genre: "Battle Royale")]
+    private var videoGameArray: Results<VideoGame>!
+    
+    let realm = try! Realm()
     
     
     func getGameCount() -> Int {
@@ -29,25 +32,36 @@ class GameManager {
     }
     
     func addGame(game: VideoGame) {
-        videoGameArray.append(game)
+        try! realm.write {
+            realm.add(game)
+        }
     }
     
     func removeGame(at index: Int) {
-        videoGameArray.remove(at: index)
+        try! realm.write {
+            realm.delete(getGame(at: index))
+        }
     }
     
     func checkOutGame(at index: Int) {
+        
         let currentCalendar = Calendar.current
         let twoWeek = currentCalendar.date(byAdding: .day, value: 14, to: Date())
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
-        videoGameArray[index].checkedOut = true
-        videoGameArray[index].checkedOutDate = dateFormatter.string(from: Date())
-        videoGameArray[index].dueDate = dateFormatter.string(from: twoWeek!)
+        
+        try! realm.write {
+            
+            dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
+            videoGameArray[index].checkedOut = true
+            videoGameArray[index].checkedOutDate = dateFormatter.string(from: Date())
+            videoGameArray[index].dueDate = dateFormatter.string(from: twoWeek!)
+        }
     }
     
     func checkGameIn(at index: Int) {
-        videoGameArray[index].checkedOut = false
+        try! realm.write {
+            videoGameArray[index].checkedOut = false
+        }
         
     }
     

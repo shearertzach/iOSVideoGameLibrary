@@ -11,7 +11,7 @@ import UIKit
 class GameInfoManagerViewController: UIViewController {
 
     var currentGameIndex = 0
-    var currentGame = VideoGame(name: "", rating: .E, genre: "")
+    var currentGame: VideoGame = VideoGame()
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var genreLabel: UILabel!
@@ -37,7 +37,7 @@ class GameInfoManagerViewController: UIViewController {
     func load() {
         nameLabel.text = currentGame.name
         genreLabel.text = currentGame.genre
-        RatingLabel.text = currentGame.rating.rawValue
+        RatingLabel.text = currentGame.rating
         
         
         if currentGame.checkedOut == true {

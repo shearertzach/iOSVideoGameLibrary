@@ -17,7 +17,7 @@ class GameLibraryViewController: UIViewController, UITableViewDataSource, UITabl
 
     
     
-    var currentGame: VideoGame = VideoGame(name: "", rating: .E, genre: "")
+    var currentGame: VideoGame = VideoGame()
     var currentIndexPath: Int?
     var isSelected = false
     
@@ -39,7 +39,7 @@ class GameLibraryViewController: UIViewController, UITableViewDataSource, UITabl
         super.viewWillAppear(animated)
         self.tableView.reloadData()
         print("View Reloaded")
-        UIView.animate(withDuration: 0.6, animations: {
+        UIView.animate(withDuration: 0.3, animations: {
             self.navigationController?.setNavigationBarHidden(false, animated: false)
         })
         
@@ -65,7 +65,7 @@ class GameLibraryViewController: UIViewController, UITableViewDataSource, UITabl
         _ = currentGame
         cell.gameNameLabel.text = currentGame.name
         cell.gameGenreLabel.text = currentGame.genre
-        cell.gameRatingLabel.text = currentGame.rating.rawValue
+        cell.gameRatingLabel.text = currentGame.rating
         
         if currentGame.checkedOut == true {
             cell.gameView.backgroundColor = UIColor.red
@@ -77,6 +77,8 @@ class GameLibraryViewController: UIViewController, UITableViewDataSource, UITabl
         return cell
     }
     
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         _ = tableView.cellForRow(at: indexPath) as! GameTableCell
         currentIndexPath = indexPath.row
@@ -86,10 +88,14 @@ class GameLibraryViewController: UIViewController, UITableViewDataSource, UITabl
         print(currentGame.name)
     }
     
+    
+    
     func tableView(_ tableView: UITableView, willDeselectRowAt indexPath: IndexPath) -> IndexPath? {
         isSelected = false
         return indexPath
     }
+    
+    
     
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {

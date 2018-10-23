@@ -70,7 +70,7 @@ class MainMenuViewController: UIViewController, CAAnimationDelegate {
         }
         
         let gradientChangeAnimation = CABasicAnimation(keyPath: "colors")
-        gradientChangeAnimation.duration = 2.5
+        gradientChangeAnimation.duration = 1.5
         gradientChangeAnimation.toValue = gradientSet[currentGradient]
         gradientChangeAnimation.fillMode = CAMediaTimingFillMode.forwards
         gradientChangeAnimation.isRemovedOnCompletion = false
@@ -97,7 +97,9 @@ class MainMenuViewController: UIViewController, CAAnimationDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: false)
+        UIView.animate(withDuration: 0.6, animations: {
+            self.navigationController?.setNavigationBarHidden(true, animated: false)
+        })
     }
     
     override func viewWillDisappear(_ animated: Bool) {
