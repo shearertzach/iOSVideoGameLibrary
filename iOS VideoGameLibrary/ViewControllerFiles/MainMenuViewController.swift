@@ -21,7 +21,6 @@ class MainMenuViewController: UIViewController, CAAnimationDelegate {
     let gradient = CAGradientLayer()
     var gradientSet = [[CGColor]]()
     var currentGradient: Int = 0
-    var isActive = true
     
     let gradientOne = gradientColors.darkRed.cgColor
     let gradientTwo = gradientColors.red.cgColor
@@ -59,8 +58,6 @@ class MainMenuViewController: UIViewController, CAAnimationDelegate {
 
     
     
-    
-    
     func animateGradient() {
         
         if currentGradient < gradientSet.count - 1 {
@@ -77,7 +74,6 @@ class MainMenuViewController: UIViewController, CAAnimationDelegate {
         gradientChangeAnimation.delegate = self
         gradient.add(gradientChangeAnimation, forKey: "colorChange")
         
-
     }
     
     

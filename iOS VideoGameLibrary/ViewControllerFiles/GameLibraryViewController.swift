@@ -9,12 +9,12 @@
 import UIKit
 
 class GameLibraryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
-
     
-
+    
+    
     @IBOutlet weak var tableView: UITableView!
     
-
+    
     
     
     var currentGame: VideoGame = VideoGame()
@@ -26,12 +26,12 @@ class GameLibraryViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.reloadData()
         
     }
-   
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
-
-
+        
+        
+        
     }
     
     
@@ -49,8 +49,8 @@ class GameLibraryViewController: UIViewController, UITableViewDataSource, UITabl
         return GameManager.sharedInstance.getGameCount()
     }
     
-
-
+    
+    
     
     
     
@@ -62,7 +62,7 @@ class GameLibraryViewController: UIViewController, UITableViewDataSource, UITabl
         let cell = tableView.dequeueReusableCell(withIdentifier: "VideoGameCell") as! GameTableCell
         currentGame = GameManager.sharedInstance.getGame(at: indexPath.row)
         currentIndexPath = indexPath.row
-        _ = currentGame
+        
         cell.gameNameLabel.text = currentGame.name
         cell.gameGenreLabel.text = currentGame.genre
         cell.gameRatingLabel.text = currentGame.rating
@@ -121,7 +121,7 @@ class GameLibraryViewController: UIViewController, UITableViewDataSource, UITabl
                 alert.addAction(UIAlertAction(title: "Okay!", style: .cancel, handler: { action in
                 }))
                 self.present(alert, animated: true, completion: nil)
-
+                
             } else if title == "Check In" {
                 GameManager.sharedInstance.checkGameIn(at: indexPath.row)
                 let dateFormatter = DateFormatter()
@@ -141,9 +141,9 @@ class GameLibraryViewController: UIViewController, UITableViewDataSource, UITabl
         showEditScreenAction.backgroundColor = gradientColors.lightGrey
         
         if title == "Check Out" {
-        titleAction.backgroundColor = gradientColors.green
+            titleAction.backgroundColor = gradientColors.green
         } else if title == "Check In" {
-        titleAction.backgroundColor = gradientColors.blue
+            titleAction.backgroundColor = gradientColors.blue
         }
         
         return [deleteAction, titleAction, showEditScreenAction]
@@ -167,5 +167,5 @@ class GameLibraryViewController: UIViewController, UITableViewDataSource, UITabl
     
     
     
-
+    
 }
